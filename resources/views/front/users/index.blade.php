@@ -19,7 +19,7 @@
 						 </div>
 					 </div>
 						@endforeach
-					 
+					
 				 </div>
 			  </div>
 
@@ -49,5 +49,5 @@
 			  </div>
 			  <div class="clearfix"></div>
 		
-<!---->
+<!----> {{ $articles->links() }}
 @endsection

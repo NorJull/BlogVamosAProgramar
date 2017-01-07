@@ -50,11 +50,16 @@ class ArticlesController extends Controller
           
 
                 $file = $request->file('image');
+                
                 $name = 'vamosaprogramar_'.time().'.'.$file->getClientOriginalExtension();
                 $path = public_path().'\img\articles';
                 $file->move($path, $name);
-                
-
+                //Redimensionar Imagen 
+                $path_resize = public_path().'\img\articles\\'.$name;
+                $image_resize = \Image::make($path_resize);
+                $image_resize->fit(670,320);
+                $image_resize->save();
+              
 
                 $article = new Article();
                 $article->title = $request->title;
@@ -77,6 +82,20 @@ class ArticlesController extends Controller
         flash('El articulo '.$article->name.' se ha agregado!', 'success');
         return redirect()->route('articles.index');
 
+
+    }
+
+  function resize($path){
+             //Redimensionar Imagen 
+               /* $file_resize = public_path().'\img\articles'.$name;
+                $image = \Image::make($file_resize);
+                $image->fit(200, 400);
+                $file_resize->move($path.'\resize', $name);
+*/
+
+                $img = \Image::make($path);
+                $img->fit(200,400);
+                return $img->response();
 
     }
 
