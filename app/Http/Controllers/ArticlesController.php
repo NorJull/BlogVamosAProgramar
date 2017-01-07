@@ -10,6 +10,7 @@ use App\Image;
 use  Laracasts\Flash\FlashServiceProvider;
 use App\Http\Requests\ArticleRequest;
 
+
 class ArticlesController extends Controller
 {
     /**

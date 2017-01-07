@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
-
+use Carbon\Carbon;
 class HomeController extends Controller
 {
     /**
@@ -13,7 +13,7 @@ class HomeController extends Controller
      * @return void
      */
     public function __construct()
-    {
+    {   Carbon::setLocale('es');
         $this->middleware('auth');
     }
 
