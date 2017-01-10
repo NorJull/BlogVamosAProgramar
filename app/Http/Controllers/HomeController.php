@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Category;
+use App\Tag;
 use Carbon\Carbon;
 class HomeController extends Controller
 {
@@ -26,6 +28,22 @@ class HomeController extends Controller
     {
         $articles = Article::orderBy('id', 'DESC')->paginate(2);
 
+        return view('front.users.index')->with('articles', $articles);
+    }
+
+    public function searchCategory(Request $request, $name)
+    {
+
+          $category = Category::search($name)->first();
+          $articles = $category->articles()->orderBy('id', 'DESC')->paginate(2);
+        return view('front.users.index')->with('articles', $articles);
+        
+    }
+
+    public function searchTag(Request $request, $name)
+    {
+        $tag = Tag::search($name)->first();
+        $articles  = $tag->articles()->orderBy('id', 'DESC')->paginate(2);
         return view('front.users.index')->with('articles', $articles);
     }
 }

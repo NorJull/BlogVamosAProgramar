@@ -16,4 +16,11 @@ protected $fillable = ["name"];
         return $this->hasMany('App\Article');
     }
 
+
+ public function scopeSearch($query, $name)
+ {
+ 		$name = trim($name);
+        return $query->where('name', '=', $name);
+
+ }   
 }

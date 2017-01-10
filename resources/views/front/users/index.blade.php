@@ -14,7 +14,7 @@
 						 @endforeach
 						 <div class="post-info">
 						 <h4><a href="single.html">{{ $article->title }}</a>| {{$article->created_at->diffForHumans()}}</h4>
-						 <p> Categoria :<a href="">{{$article->category->name}}</a>  </p>
+						 <p> Categoria :<a href="{{route('search.category', $article->category->name)}}">{{$article->category->name}}</a>  </p>
 						 <a href="single.html"><span></span>LEER MAS</a>
 						 </div>
 					 </div>

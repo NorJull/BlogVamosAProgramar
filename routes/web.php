@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', 'HomeController@index')->name('front.index');
+
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
-    Route::get('/', function () {
+    Route::get('home', function () {
     return view('welcome');
 });
    
@@ -42,3 +42,12 @@ Auth::routes();
 
 Route::get('admin/auth/login', 'Auth\LoginController@showLoginForm')->name('auth.login');
 Route::post('admin/auth/login', 'Auth\LoginController@login')->name('auth.login');
+
+
+Route::get('/', 'HomeController@index')->name('front.index');
+//Buscar articulos Por categoria
+
+Route::get('categories/{name}', 'HomeController@searchCategory')->name('search.category');
+Route::get('tags/{name}', 'HomeController@searchTag')->name('search.tag');
+
+
