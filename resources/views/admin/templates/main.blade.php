@@ -33,7 +33,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">Vamos a Programar</a>
+      <a class="navbar-brand" href="{{route('front.index')}}">Vamos a Programar</a>
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->
@@ -64,7 +64,8 @@
 
        @else
 
-        <li><a href="#">Pagina Principal</a></li>
+           <li><a href="{{route('home')}}">Panel de Administracion</a></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"> {{ Auth::user()->name }} <span class="caret"></span></a>
           <ul class="dropdown-menu">

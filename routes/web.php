@@ -17,7 +17,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
     Route::get('home', function () {
     return view('welcome');
-});
+})->name('home');
    
 
    Route::resource('users', 'UsersController');

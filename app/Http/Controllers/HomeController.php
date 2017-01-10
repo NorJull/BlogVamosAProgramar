@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {   Carbon::setLocale('es');
-        $this->middleware('auth');
+        
     }
 
     /**
