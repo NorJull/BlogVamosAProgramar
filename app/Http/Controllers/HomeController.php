@@ -46,4 +46,9 @@ class HomeController extends Controller
         $articles  = $tag->articles()->orderBy('id', 'DESC')->paginate(2);
         return view('front.users.index')->with('articles', $articles);
     }
+    public function viewArticle($slug){
+        $article = Article::findBySlugOrFail($slug);
+        return view('front.users.viewArticle')->with('article', $article);
+
+    }
 }

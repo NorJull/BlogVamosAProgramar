@@ -51,3 +51,7 @@ Route::get('categories/{name}', 'HomeController@searchCategory')->name('search.c
 Route::get('tags/{name}', 'HomeController@searchTag')->name('search.tag');
 
 
+//Vista de Articulos 
+
+Route::get('articles/{slug}', 'HomeController@viewArticle')->name('view.article');
+
