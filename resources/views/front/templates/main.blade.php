@@ -55,9 +55,7 @@
 
        <ul class="nav navbar-nav navbar-right">
         @if (Auth::guest())
-         <li><a href="{{ route('auth.login') }}">Entrar</a></li>
-                         <li><a href="{{ route('users.create') }}">Registrarse</a></li>
-
+     
        @else
 
         <li><a href="{{route('home')}}">Panel de Administracion</a></li>

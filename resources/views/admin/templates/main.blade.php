@@ -47,7 +47,10 @@
 
 
         <li class="active"><a href="/">Inicio<span class="sr-only">(current)</span></a></li>
+      
+        @if( Auth::user()->type === 'admin')
         <li><a href="{{route('users.index')}}">Usuarios</a></li>
+             @endif
              <li><a href="{{route('categories.index')}}">Categorias</a></li>
                   <li><a href="{{ route('articles.index') }}">Articulos</a></li>
                        <li><a href="{{ route('images.index') }}">Imagenes</a></li>

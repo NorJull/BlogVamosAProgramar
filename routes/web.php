@@ -18,9 +18,12 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('home', function () {
     return view('welcome');
 })->name('home');
-   
+    
+   Route::group([ 'middleware' => 'checkrole'], function(){
+       Route::resource('users', 'UsersController');
+   });
 
-   Route::resource('users', 'UsersController');
+  
    Route::get('users/{id}/destroy','UsersController@destroy')->name('users.destroy');
    
    Route::resource('categories','CategoriesController');

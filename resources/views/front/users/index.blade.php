@@ -15,7 +15,7 @@
 						 <div class="post-info">
 						 <h4><a href="{{route('view.article', $article->slug)}}">{{ $article->title }}</a>| {{$article->created_at->diffForHumans()}}</h4>
 						 <p> Categoria :<a href="{{route('search.category', $article->category->name)}}">{{$article->category->name}}</a>  </p>
-						 <a href="single.html"><span></span>LEER MAS</a>
+						 <a href="{{route('view.article', $article->slug)}}"><span></span>LEER MAS</a>
 						 </div>
 					 </div>
 						@endforeach
