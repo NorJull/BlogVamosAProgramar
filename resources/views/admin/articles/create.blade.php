@@ -26,7 +26,7 @@
 		
 		<div class="form-group">
 			{!! Form::label('content', 'Contenido del Articulo') !!}
-			{!! Form::textarea('content', null, ['class' => 'form-control trumbowyg-demo']) !!}
+			{!! Form::textarea('content', null, ['class' => 'form-control']) !!}
 
 		</div>
 		<div class="form-group">
@@ -54,9 +54,18 @@
 	no_results_text: "Oops, No se ha encontrado!"
 
 
-});</script> 
-<script type="text/javascript">
-	$('.trumbowyg-demo').trumbowyg();
+});
 
+</script> 
+<script type="text/javascript">
+//	CKEDITOR.replece("content");
+
+window.onload = function(){
+	 editor = CKEDITOR.replace( 'content' );
+	  CKFinder.setupCKEditor(editor, 'http://localhost:8000/plugins/CKEditor/ckeditor');
+}
+	
 </script>
 @endsection
+
+

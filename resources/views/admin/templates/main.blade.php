@@ -7,7 +7,7 @@
  
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/bootstrap/css/bootstrap.css')}}">
 <link rel="stylesheet" type="text/css" href="{{ asset('plugins/chosen/chosen.css') }}">
-<link rel="stylesheet" href="{{ asset('plugins/trumbowyg/dist/ui/trumbowyg.css') }}">
+
 <style type="text/css">
   body {
     
@@ -122,7 +122,8 @@
 <script src="{{ asset('plugins/jquery/js/jquery-3.1.1.js')}}"></script>
 <script src="{{ asset('plugins/bootstrap/js/bootstrap.js')}}"></script>
 <script src="{{ asset('plugins/chosen/chosen.jquery.js') }}"></script>
-<script src="{{ asset('plugins/trumbowyg/dist/trumbowyg.js') }}"></script>
+<script src="{{ asset('plugins/CKEditor/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('plugins/CKEditor/ckfinder/ckfinder.js') }}"></script>
  
  @yield('js')
 

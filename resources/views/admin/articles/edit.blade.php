@@ -26,7 +26,7 @@
 		
 		<div class="form-group">
 			{!! Form::label('content', 'Contenido del Articulo') !!}
-			{!! Form::textarea('content', $article->content, ['class' => 'form-control trumbowyg-demo']) !!}
+			{!! Form::textarea('content', $article->content, ['class' => 'form-control ']) !!}
 
 		</div>
 		<div class="form-group">
@@ -56,7 +56,12 @@
 
 });</script> 
 <script type="text/javascript">
-	$('.trumbowyg-demo').trumbowyg();
+//	CKEDITOR.replece("content");
 
+window.onload = function(){
+	 editor = CKEDITOR.replace( 'content' );
+	  CKFinder.setupCKEditor(editor, 'http://localhost:8000/plugins/CKEditor/ckeditor');
+}
+	
 </script>
 @endsection
