@@ -16,7 +16,16 @@ $("#save").click(function(){
     dataType: "json",
     data:{ "name": myData},
     error: function(data){
-    	console.log(data);
+    	console.log(data.status);
+
+    	if(data.status == 422){
+
+    	$("#messages").html('<div class="alert alert-danger" role="alert">Ohh!!! El tag '+myData+' habia sido añadido!</div>');
+
+    	}
+    	//responseText
+
+
     // Error...
    /* var errors = $.parseJSON(data.responseText);
 
@@ -30,6 +39,14 @@ $("#save").click(function(){
     });*/
 }  
    
+}).done(function(data){
+
+
+
+	if(data.mensaje == "Creado"){
+			$("#messages").html('<div class="alert alert-success" role="alert">El tag '+myData+' ha sido añadido exitosamente!</div>');
+	}
+	//<div class="alert alert-success" role="alert">...</div>
 });
 
 });
@@ -60,3 +77,5 @@ function getTags(page){
 }
 
 });
+
+//Fin Paginacion con AJAX
