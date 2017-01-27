@@ -115,4 +115,10 @@ class TagsController extends Controller
     return redirect()->route('tags.index');
 
     }
+
+    //Metodos para AJAX
+    public function getTags(Request $request){
+           $tags = Tag::name($request->name)->orderBy('id','ASC')->paginate(4);
+       return view('admin.tags.tags')->with('tags', $tags)->render();
+    }
 }

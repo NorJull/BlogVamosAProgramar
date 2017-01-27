@@ -33,3 +33,30 @@ $("#save").click(function(){
 });
 
 });
+//localhost:8000/admin/tags?page=2
+
+//Paginacion Ajax
+
+$(document).on('click', '.pagination a', function(e){
+e.preventDefault();
+var page = $(this).attr('href').split('page=')[1];
+
+	console.log(page);
+
+getTags(page);
+
+function getTags(page){
+
+	$.ajax({
+
+		url : '/admin/ajax/tags?page='+page
+	}).done(function(data){
+
+		console.log(data);
+	$('.content').html(data);	
+	location.hash = page;
+	});
+
+}
+
+});

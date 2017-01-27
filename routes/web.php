@@ -37,8 +37,11 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
    Route::get('images', 'ImagesController@index')->name('images.index');
 
-});
+//Rutas para Ajax
+   Route::get('ajax/tags','TagsController@getTags');
 
+});
+///admin/ajax/tags
 
 Auth::routes();
 

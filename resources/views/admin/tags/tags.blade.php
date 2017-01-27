@@ -1,10 +1,4 @@
-@extends('admin.templates.main')
-
-@section('title', 'Lista de Tags')
-
-@section('content')
-<div class="content">
-	<a href="{{ route('tags.create') }}" class="btn btn-primary">Agregar Tag</a>
+<a href="{{ route('tags.create') }}" class="btn btn-primary">Agregar Tag</a>
 	<!-- Buscador!-->
 		{!! Form::open(['route' => 'tags.index', 'method' => 'GET', 'class' => 'navbar-form pull-right']) !!}
 
@@ -40,10 +34,3 @@
 
 	</table>
 	{{$tags->links()}}
-</div>
-	
-@endsection
- 
- @section('js')
-  <script src="{{ asset('js/ajax.js') }}"></script>
- @endsection
