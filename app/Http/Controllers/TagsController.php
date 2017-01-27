@@ -17,7 +17,7 @@ class TagsController extends Controller
 
     {
 
-      $tags = Tag::name($request->name)->orderBy('id','DESC')->paginate(5);
+      $tags = Tag::name($request->name)->orderBy('id','ASC')->paginate(4);
        return view('admin.tags.index')->with('tags', $tags);
     }
 
@@ -39,13 +39,26 @@ class TagsController extends Controller
      */
     public function store(TagRequest $request)
     {
+       /* $tag = new Tag();
+        $tag->name = $request->name;
+        $tag->save();
+        flash('El tag '.$tag->name.' ha sido Agregado!', 'success');
+
+        return redirect()->route('tags.index');*/
+
+
+        if($request->ajax()){
         $tag = new Tag();
         $tag->name = $request->name;
         $tag->save();
+         flash('El tag '.$tag->name.' ha sido Agregado!', 'success');
+        return response()->json([
+            "mensaje" => "Creado"
+            ]);
 
-        flash('El tag '.$tag->name.' ha sido Agregado!', 'success');
+        }
 
-        return redirect()->route('tags.index');
+
     }
 
     /**
