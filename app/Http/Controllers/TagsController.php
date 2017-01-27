@@ -51,7 +51,7 @@ class TagsController extends Controller
         $tag = new Tag();
         $tag->name = $request->name;
         $tag->save();
-         flash('El tag '.$tag->name.' ha sido Agregado!', 'success');
+        
         return response()->json([
             "mensaje" => "Creado"
             ]);

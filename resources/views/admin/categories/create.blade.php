@@ -3,24 +3,22 @@
 @section('title', 'Nueva Categoria')
 
 @section('content')
- @if(count($errors) > 0)
-        <div class="alert alert-danger" role="alert">
-            @foreach($errors->all() as $error)
-            {{$error}}<br>
-            @endforeach
-        </div>
-    @endif
+    <div id="messages"></div>
 
 
-{!! Form::open(['route' => 'categories.store', 'method' => 'POST']) !!}
+{!! Form::open(['class' => 'ajaxForm']) !!}
+<input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
 	 <div class="form-group">
     	{!! Form::label('name', 'Nombre') !!}
     	{!!	Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Nombre', 'required']) !!}
     </div>
-    <div class="form-group">
-    {!!Form::submit('Guardar', ['class' => 'btn btn-primary'])!!} 
+   <div class="form-group">   
+          {!!link_to('#', $title = 'Agregar', $attributes = ['id' => 'saveCategory', 'class' => 'btn btn-primary'], $secure = null)!!}
+    </div>
 
-     </div>
 {!! Form::close() !!}
 
 @endsection
+ @section('js')
+  <script src="{{ asset('js/ajax.js') }}"></script>
+ @endsection

@@ -1,13 +1,11 @@
-$("#save").click(function(){
 
-	var myData = $("#name").val();
-	var URL = "http://localhost:8000/admin/tags";
-	var myToken = $("#token").val();
-	// 	var data2 =  $.parseJSON('{ "name": myData , "_token": myToken}');
-	// console.log(myData);
-	// console.log(myToken);
-	// console.log(URL);
-	// console.log(data2);
+function createPOST(name, url, token, successMessage, failMessage){
+    var myData = name;
+	var URL = url;
+	var myToken = token;
+	var success = successMessage;
+	var fail = failMessage;
+
 
 	$.ajax({
 	url: URL,
@@ -20,37 +18,53 @@ $("#save").click(function(){
 
     	if(data.status == 422){
 
-    	$("#messages").html('<div class="alert alert-danger" role="alert">Ohh!!! El tag '+myData+' habia sido añadido!</div>');
-
-    	}
-    	//responseText
-
-
-    // Error...
-   /* var errors = $.parseJSON(data.responseText);
-
-    console.log(errors);
-
-    $.each(errors, function(index, value) {
-        $.gritter.add({
-            title: 'Error',
-            text: value
-        });
-    });*/
-}  
-   
-}).done(function(data){
-
-
+    	$("#messages").html('<div class="alert alert-danger" role="alert">'+fail+'</div>');
+    	}	
+	}  
+	}).done(function(data){
+		
 
 	if(data.mensaje == "Creado"){
-			$("#messages").html('<div class="alert alert-success" role="alert">El tag '+myData+' ha sido añadido exitosamente!</div>');
+		$("#messages").html('<div class="alert alert-success" role="alert">'+ success+'</div>');
+		
 	}
-	//<div class="alert alert-success" role="alert">...</div>
+
+	});
+}
+
+$("#save").click(function(){
+
+	var myData = $("#name").val();
+	var URL = $(".ajaxForm").attr('action').split('/create')[0];
+	var myToken = $("#token").val();
+	var successMessage = 'El tag '+myData+' ha sido añadido exitosamente!';
+	var  failMessage = 'Ohh!!! El tag '+myData+' habia sido añadido!';
+
+	console.log(myData);
+	console.log(URL);
+	console.log(myToken);
+	console.log(successMessage);
+	console.log(failMessage);
+	createPOST(myData, URL, myToken, successMessage, failMessage);
+});
+$("#saveCategory").click(function(){
+
+	var myData = $("#name").val();
+	var URL = $(".ajaxForm").attr('action').split('/create')[0];
+	var myToken = $("#token").val();
+	var successMessage = 'La categoria '+myData+' ha sido añadido exitosamente!';
+	var  failMessage = 'Ohh!!! La categoria '+myData+' habia sido añadido!';
+
+	console.log(myData);
+	console.log(URL);
+	console.log(myToken);
+	console.log(successMessage);
+	console.log(failMessage);
+	createPOST(myData, URL, myToken, successMessage, failMessage);
 });
 
-});
-//localhost:8000/admin/tags?page=2
+
+
 
 //Paginacion Ajax
 

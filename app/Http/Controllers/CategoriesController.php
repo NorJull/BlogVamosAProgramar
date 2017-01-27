@@ -37,11 +37,19 @@ class CategoriesController extends Controller
      */
     public function store(CategoryRequest $request)
     {
-      $category = new Category($request->all());
-      $category->save();
-      flash('La categoria '.$category->name.' ha sido creada con exito!', 'success');
-       
-     return redirect()->route('categories.index');
+      // $category = new Category($request->all());
+      // $category->save();
+      // flash('La categoria '.$category->name.' ha sido creada con exito!', 'success');
+      // return redirect()->route('categories.index');
+      if($request->ajax()){
+       $category = new Category($request->all());
+       $category->save();
+        
+        return response()->json([
+            "mensaje" => "Creado"
+            ]);
+
+        }
     }
 
     /**

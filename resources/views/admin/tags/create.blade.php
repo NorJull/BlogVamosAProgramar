@@ -9,7 +9,7 @@
 
 
 
-	{!! Form::open() !!}
+	{!! Form::open(['class' => 'ajaxForm']) !!}
 		<input type="hidden" name="_token" value="{{csrf_token()}}" id="token">
 		<div class="form-group">
 
