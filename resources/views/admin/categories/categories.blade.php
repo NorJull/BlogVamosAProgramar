@@ -1,9 +1,3 @@
-@extends('admin.templates.main')
-
-@section('title', 'Lista de Categorias')
-
-@section('content')
-<div class="content">
 <a href="{{ route('categories.create') }}" class="btn btn-primary">Agregar Categoria</a>
 <br>
 
@@ -28,38 +22,3 @@
 		</tbody>
 	</table>
 		{{ $categories->links() }}	
-
-</div>
-
-@endsection
-
-
- @section('js')
-  <script >
-
-$(document).on('click', '.pagination a', function(e){
-e.preventDefault();
-var page = $(this).attr('href').split('page=')[1];
-
-
- getTags(page);
-
- function getTags(page){
-
- 	$.ajax({
-
-		url : '/admin/ajax/categories?page='+page
- 	}).done(function(data){
-
- 		
- $('.content').html(data);	
- 	location.hash = page;
- 	});
-
-}
-
-});
-
-  </script>
- @endsection
-

@@ -106,4 +106,12 @@ class CategoriesController extends Controller
         return redirect()->route('categories.index');
 
     }
+
+    //Metodos Ajax
+    public function getCategories(){
+
+           $categories = Category::orderBy('id','ASC')->paginate(4);
+             return view('admin.categories.categories')->with('categories',$categories);
+   
+    }
 }

@@ -39,7 +39,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
 
 //Rutas para Ajax
    Route::get('ajax/tags','TagsController@getTags');
-
+   Route::get('ajax/categories', 'CategoriesController@getCategories');
 });
 ///admin/ajax/tags
 
