@@ -113,9 +113,14 @@
  </div>
 
  <footer class="footer">
-      <div class="container">
+  <div class="panel panel-default">
+  <div class="panel-body">
+     <p class="text-muted"> <b>Copyright &copy;  2016 - 2017 By NorJull</b></p>
+  </div>
+</div>
+     <!--  <div class="container">
         <p class="text-muted">Vamos a Programar</p>
-      </div>
+      </div> -->
     </footer>
 </div>
 
